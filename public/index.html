@@ -16,6 +16,28 @@
 
 <body>
     <div class="container getWeatherContainer">
+        <p class="slider-container">
+        <span>WindSpeed: </span><span class="dataText" id="temperatureValue"></span>
+            <input
+                class="mdl-slider mdl-js-slider" 
+                type="range" 
+                id="temperature"
+                min="-10"
+                max="35" 
+                value="10"
+                step="2">
+        </p>
+        <p class="slider-container">
+        <span>Temperature: </span><span class="dataText" id="windSpeedValue"></span>
+            <input
+                class="mdl-slider mdl-js-slider"
+                type="range"
+                id="windSpeed"
+                min="0"
+                max="15"
+                value="0"
+                step="1"> 
+        </p>
         <button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="weatherBtn">
             Get weather
         </button>
