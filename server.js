@@ -1,34 +1,59 @@
 require('dotenv').config();
-const APIKEY = process.env.CLIMACELL_API_KEY;
+const apikey = process.env.API_KEY;
+const PORT = process.env.PORT;
 const fetch = require('node-fetch');
 const express = require('express');
 const app = express();
+const path = require('path')
+const queryString = require("query-string");
 
 app.use(express.json());
 app.use(express.static('public'));
+express.static.mime.define({'application/javascript': ['js']});
 
-async function getWeather(coords) {
-    const response = await fetch(`https://data.climacell.co/v4/timelines?location=${coords.latitude}%2C${coords.longitude}&fields=temperature&fields=weatherCode&fields=windSpeed&fields=humidity&fields=precipitationIntensity&timesteps=current&units=metric&apikey=${APIKEY}`, {
-        "method": "GET",
-        "mode": "cors",
-        "headers": {
-            "Content-Type": "application/json",
-            "Accept": "application/json"
-        }
+// call api for weather data based on coordinate args
+async function getWeather(latlong) {
+    const location = `${latlong[0]},${latlong[1]}`;
+    const getTimelineURL = "https://api.tomorrow.io/v4/timelines";
+    const fields = [
+        "weatherCode",
+        "temperature",
+        "temperatureApparent",
+        "windSpeed",
+        "windGust",
+        "precipitationIntensity"
+    ];
+    const units = 'metric';
+    const timesteps = ["current"];
+    const getTimelineParameters = queryString.stringify({
+        location,
+        fields,
+        units,
+        timesteps,
+        apikey,
+    }, {arrayFormat: "comma"});
+    const res = await fetch(getTimelineURL + "?" + getTimelineParameters, {
+        method: "GET",
+        headers: {Accept: "application/json"}
     });
-    console.log(response);
-    // console.log(await response.json());
-    return await response.json();
+    console.log(res.status);
+    return await res.json();
 }
 
+// serving frontend
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname + '/public/index.html'));
+})
+
 app.post('/weather', (req, res) => {
-    console.log(req.body);
-    const response = getWeather(req.body).then(data => res.json(data)).catch(e => console.log(e));
-    // console.log(response);
-    // res.json(response);
+    const response = getWeather(req.body)
+        .then(data => res.json(data))
+        .catch(e => console.log(e));
 });
 
 
-app.listen(8080, () => {
-console.log('Server started');
+
+
+app.listen(PORT, () => {
+    console.log(`Server started localhost:${PORT}`);
 })

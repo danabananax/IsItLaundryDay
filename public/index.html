@@ -1,18 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Is it Laundry Day</title>
     <link rel="stylesheet" href="style.css">
-    <script defer type="text/javascript" src="app.js" ></script>
+    <script defer type="module" src="app.js"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue_grey-deep_purple.min.css" />
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 </head>
+
 <body>
-    <div class="container">
-        <h1>Loading...</h1>
-        <ul></ul>
+    <div class="container getWeatherContainer">
+        <button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="weatherBtn">
+            Get weather
+        </button>
+    </div>
+    <div class="container resultContainer" display="none">
+        <img src="" alt="" id="weatherImg">
+        <h3 id="header">
+
+        </h3>
+        <ul id="results" class='mdl-list'>
+        </ul>
     </div>
 </body>
+
 </html>
