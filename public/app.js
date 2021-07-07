@@ -18,15 +18,27 @@ const geoSuccess = position => {
     fetchWeather([lat, lon]).then(res => results(res.data.timelines[0].intervals[0].values));
 }
 
+// add event listener to get weather button
+const weatherButton = document.querySelector('#weatherBtn');
+weatherButton.addEventListener('click', handleClick);
+
+
+// input event handler for slider and text value
 const changeText = (e) => {
-    console.log(e);
     const sliderVal = e.target.value;
     const valueNode = document.querySelector(`#${e.target.id}Value`)
     valueNode.innerText = sliderVal;
 }
-// slider on change update text
-document.querySelector('#temperature').addEventListener('change', e => changeText(e));
-document.querySelector('#windSpeed').addEventListener('change', e => changeText(e));
-// add event listener to get weather button
-const weatherButton = document.querySelector('#weatherBtn');
-weatherButton.addEventListener('click', handleClick);
+// set text as value
+document.querySelectorAll('input').forEach(input => {
+    const sliderVal = input.value;
+    const valueNode = document.querySelector(`#${input.id}Value`);
+    valueNode.innerText = sliderVal;
+    input.addEventListener('input', e => changeText(e));
+});
+
+
+/*
+document.querySelector('#temperature').addEventListener('input', e => changeText(e));
+document.querySelector('#windSpeed').addEventListener('input', e => changeText(e));
+*/

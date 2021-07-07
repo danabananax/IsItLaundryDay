@@ -1,8 +1,7 @@
 .getWeatherContainer #weatherBtn {
   font-size: 1.5em;
-  height: 2em;
-  width: 30%;
   width: 300px;
+  margin: 1em;
 }
 @media (min-width: 890px) {
   .getWeatherContainer #weatherBtn {
@@ -10,12 +9,23 @@
   }
 }
 .getWeatherContainer .slider-container {
+  margin-bottom: 1.5em;
   width: 300px;
 }
 @media (min-width: 890px) {
   .getWeatherContainer .slider-container {
     width: 400px;
   }
+}
+.getWeatherContainer .slider-container .dataLabel {
+  margin: 5px 0 5px 20px;
+  font-size: 1.3em;
+  color: #666;
+}
+.getWeatherContainer .slider-container .dataLabel .dataText {
+  font-size: 1.5em;
+  color: #000;
+  font-weight: 500;
 }
 
 .resultContainer #weatherImg {
@@ -54,12 +64,14 @@ html {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  font-family: "Roboto Mono", sans-serif;
 }
 
 *, *:before, *:after {
   -webkit-box-sizing: inherit;
   -moz-box-sizing: inherit;
   box-sizing: inherit;
+  font-family: inherit;
 }
 
 .container {
