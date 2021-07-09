@@ -16,6 +16,7 @@
 
 <body>
     <div class="container getWeatherContainer">
+        <h6>Drying conditions</h6>
         <div class="slider-container">
             <p class="dataLabel">Temperature: <span class="dataText" id="temperatureValue"></span></p>
             <input
@@ -24,7 +25,7 @@
                 id="temperature"
                 min="-10"
                 max="35" 
-                value="10"
+                value="13"
                 step="2">
         </div>
         <div class="slider-container">
@@ -35,14 +36,15 @@
                 id="windSpeed"
                 min="0"
                 max="15"
-                value="0"
+                value="8"
                 step="1"> 
         </div>
         <button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="weatherBtn">
             Get weather
         </button>
     </div>
-    <div class="container resultContainer" display="none">
+    <div class="container resultContainer">
+        <h2 id='resultText'></h2>
         <img src="" alt="" id="weatherImg">
         <h3 id="header">
 

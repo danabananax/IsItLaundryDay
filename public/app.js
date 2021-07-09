@@ -25,14 +25,16 @@ weatherButton.addEventListener('click', handleClick);
 
 // input event handler for slider and text value
 const changeText = (e) => {
-    const sliderVal = e.target.value;
+    let sliderVal = e.target.value;
     const valueNode = document.querySelector(`#${e.target.id}Value`)
+    sliderVal = sliderVal.toString() + (valueNode.id === 'temperatureValue' ? '°C' : 'm/s');
     valueNode.innerText = sliderVal;
 }
 // set text as value
 document.querySelectorAll('input').forEach(input => {
-    const sliderVal = input.value;
+    let sliderVal = input.value;
     const valueNode = document.querySelector(`#${input.id}Value`);
+    sliderVal = sliderVal.toString() + (valueNode.id === 'temperatureValue' ? '°C' : 'm/s');
     valueNode.innerText = sliderVal;
     input.addEventListener('input', e => changeText(e));
 });

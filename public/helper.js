@@ -31,11 +31,11 @@ const codeDescriptions = {
 const propertyTitles = {
       'temperature': {
             name: 'Temperature:',
-            units: ''
+            units: '°C'
       }, 
       'temperatureApparent': {
             name: "Apparent Temperature:", 
-            units: ''
+            units: '°C'
       },
       'windSpeed': {
             name: 'Wind Speed:', 

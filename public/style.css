@@ -8,6 +8,10 @@
     width: 400px;
   }
 }
+.getWeatherContainer h6 {
+  color: #666;
+  padding: 1.5em;
+}
 .getWeatherContainer .slider-container {
   margin-bottom: 1.5em;
   width: 300px;
@@ -29,12 +33,15 @@
 }
 
 .resultContainer #weatherImg {
-  width: 25%;
+  width: 20%;
 }
 @media (max-width: 890px) {
   .resultContainer #weatherImg {
     width: 60%;
   }
+}
+.resultContainer #header {
+  font-weight: bold;
 }
 .resultContainer #results {
   list-style-type: none;
@@ -64,14 +71,12 @@ html {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  font-family: "Roboto Mono", sans-serif;
 }
 
 *, *:before, *:after {
   -webkit-box-sizing: inherit;
   -moz-box-sizing: inherit;
   box-sizing: inherit;
-  font-family: inherit;
 }
 
 .container {
@@ -80,6 +85,13 @@ html {
   align-items: center;
   flex-direction: column;
   height: 100vh;
+}
+.container.resultContainer {
+  font-family: "Roboto Mono";
+  display: none;
+}
+.container.getWeatherContainer {
+  font-family: "Roboto Mono";
 }
 
 /*# sourceMappingURL=style.css.map */
