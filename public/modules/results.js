@@ -14,7 +14,7 @@ const getResultString = (data) => {
 
     if(data['precipitationIntensity'] > 0) return "Since its raining,\nstick to the dryer today."
     
-    const score = 0;
+    let score = 0;
     const resultStrings = {
         0: 'None of your conditions matched so\nmaybe stick to the dryer today.',
         1: 'Maybe not the best day,\nbut doable!',
@@ -28,7 +28,6 @@ const getResultString = (data) => {
 
 export default function results(data) { // {weatherCode: 1000, precipitationIntensity: 2, temperatur...}
     // get rid of previous display
-    console.log(data); 
     document.querySelector('.getWeatherContainer').style.display = 'none';
 
     // Generate result string using local fn's in module
@@ -59,7 +58,6 @@ export default function results(data) { // {weatherCode: 1000, precipitationInte
     const resultList = document.querySelector('#results');
 
     for(const property in data) {
-        console.log(property);
         if(property === 'weatherCode') continue;
         const listElement = document.createElement('li');
 

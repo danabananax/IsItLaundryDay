@@ -1,5 +1,4 @@
 export default async function fetchWeather(latlon) { // [lat, lon]
-    console.log('fetching weather');
     try { 
         const res = await fetch('/weather', {
             method: "POST", 

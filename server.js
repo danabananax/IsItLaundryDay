@@ -1,6 +1,6 @@
 require('dotenv').config();
 const apikey = process.env.API_KEY;
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 3000;
 const fetch = require('node-fetch');
 const express = require('express');
 const app = express();
@@ -26,28 +26,31 @@ async function getWeather(latlong) {
     const units = 'metric';
     const timesteps = ["current"];
     const getTimelineParameters = queryString.stringify({
-        location,
         fields,
         units,
         timesteps,
         apikey,
+        location
     }, {arrayFormat: "comma"});
-    const res = await fetch(getTimelineURL + "?" + getTimelineParameters, {
+    const reqURL = getTimelineURL + '?' + getTimelineParameters;
+    const res = await fetch(reqURL, {
         method: "GET",
         headers: {Accept: "application/json"}
-    });
+    });    
     console.log(res.status);
     return await res.json();
 }
 
 // serving frontend
-app.get('*', (req, res) => {
+app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname + '/public/index.html'));
 })
 
 app.post('/weather', (req, res) => {
-    const response = getWeather(req.body)
-        .then(data => res.json(data))
+    getWeather(req.body)
+        .then(data => {
+            return res.json(data)
+        })
         .catch(e => console.log(e));
 });
 
