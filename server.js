@@ -1,4 +1,3 @@
-require('dotenv').config();
 const apikey = process.env.API_KEY;
 const PORT = process.env.PORT || 3000;
 const fetch = require('node-fetch');
