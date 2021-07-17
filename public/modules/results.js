@@ -1,4 +1,4 @@
-import {codeDescriptions, propertyTitles, iconNames} from '../helper.js';
+import {codeDescriptions, propertyTitles, iconNames, removeAllChildren} from '../helper.js';
 
 
 // grab user configured conditions for drying and output with object {temperature: X, windSpeed: Y} 
@@ -22,18 +22,25 @@ const getResultString = (data) => {
     }
 
     for(const property in conditions) if(data[property] > conditions[property]) score++;
-    
     return resultStrings[score];
 }
 
-export default function results(data) { // {weatherCode: 1000, precipitationIntensity: 2, temperatur...}
+const goBack = () => {
+    document.querySelectorAll('.volatile').forEach(node => removeAllChildren(node))
+    document.querySelector('.resultContainer').style.display = 'none';
+    document.querySelector('.getWeatherContainer').style.display = 'flex';
+}
+
+export default function results(data) { // data = {weatherCode: 1000, precipitationIntensity: 2, temperatur...}
     // get rid of previous display
     document.querySelector('.getWeatherContainer').style.display = 'none';
+
+    // attaching event handler to button
+    document.querySelector('#back-btn').addEventListener('click', goBack);
 
     // Generate result string using local fn's in module
     const resultString = document.createTextNode(getResultString(data));
     document.querySelector('#resultText').appendChild(resultString);
-
 
     // add image above header corresponding to weather
     const hours = new Date().getHours();

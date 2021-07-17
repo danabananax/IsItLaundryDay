@@ -1,11 +1,13 @@
 .getWeatherContainer #weatherBtn {
   font-size: 1.5em;
-  width: 300px;
+  width: 10em;
   margin: 1em;
+  border-radius: 5%;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
 }
 @media (min-width: 890px) {
   .getWeatherContainer #weatherBtn {
-    width: 400px;
+    width: 17em;
   }
 }
 .getWeatherContainer h6 {
@@ -14,11 +16,11 @@
 }
 .getWeatherContainer .slider-container {
   margin-bottom: 1.5em;
-  width: 300px;
+  width: 17em;
 }
 @media (min-width: 890px) {
   .getWeatherContainer .slider-container {
-    width: 400px;
+    width: 29em;
   }
 }
 .getWeatherContainer .slider-container .dataLabel {
@@ -42,6 +44,13 @@
 }
 .resultContainer #header {
   font-weight: bold;
+}
+.resultContainer #back-btn {
+  font-size: 1.5em;
+  width: 10em;
+  margin: 2em;
+  border-radius: 5%;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
 }
 .resultContainer #results {
   list-style-type: none;

@@ -57,7 +57,7 @@ const iconNames = {
             day: "clear_day",
             night: "clear_night"
       },
-      "1001": "cloudy.svg",
+      "1001": "cloudy",
       "1100": {
             day: "mostly_clear_day",
             night: "mostly_clear_night",
@@ -88,4 +88,10 @@ const iconNames = {
       "variableCodes": [1000,1100,1101],
 }
 
-export {codeDescriptions, propertyTitles, iconNames};
+function removeAllChildren(parent) {
+      while(parent.firstChild) {
+            parent.removeChild(parent.firstChild);
+      }
+}
+
+export {codeDescriptions, propertyTitles, iconNames, removeAllChildren};
