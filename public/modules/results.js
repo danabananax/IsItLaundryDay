@@ -17,8 +17,8 @@ const getResultString = (data) => {
     let score = 0;
     const resultStrings = {
         0: 'None of your conditions matched so\nmaybe stick to the dryer today.',
-        1: 'Maybe not the best day,\nbut doable!',
-        2: 'Suitable conditions for drying,\n break a leg!'
+        1: '1/2 conditions passed. Maybe not\nthe best day, but doable!',
+        2: '2/2 conditions passed. Perfect day!'
     }
 
     for(const property in conditions) if(data[property] > conditions[property]) score++;
