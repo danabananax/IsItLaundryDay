@@ -1,5 +1,5 @@
 .getWeatherContainer #weatherBtn {
-  font-size: 1.5em;
+  font-size: 1em;
   width: 10em;
   margin: 1em;
   border-radius: 5%;
@@ -36,11 +36,6 @@
 
 .resultContainer #weatherImg {
   width: 20%;
-}
-@media (max-width: 890px) {
-  .resultContainer #weatherImg {
-    width: 60%;
-  }
 }
 .resultContainer #header {
   font-weight: bold;
@@ -81,16 +76,20 @@
   font-size: 2em;
 }
 @media (max-width: 500px) {
+  .resultContainer #weatherImg {
+    width: 50%;
+  }
   .resultContainer #header {
-    margin: 0.5em;
+    margin: 0;
   }
   .resultContainer #resultText {
     font-size: 1.5em;
-    margin: 0.3em;
+    margin: 0;
   }
   .resultContainer #back-btn {
-    margin: 0.5em;
+    margin: 0;
     font-size: 1em;
+    margin-bottom: 1em;
   }
   .resultContainer #results .propName {
     font-size: 0.7em;
@@ -117,7 +116,7 @@ body {
 }
 
 .container {
-  height: 100%;
+  min-height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -130,12 +129,22 @@ body {
 .container.getWeatherContainer {
   font-family: "Roboto Mono";
 }
+.container.loading {
+  width: 100%;
+  display: none;
+}
+.container.loading #loading-bar {
+  width: 30%;
+}
 .container h6 {
   text-align: center;
 }
 @media (max-width: 500px) {
   .container {
     justify-content: space-around;
+  }
+  .container.loading #loading-bar {
+    width: 50%;
   }
 }
 

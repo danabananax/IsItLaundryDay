@@ -79,7 +79,7 @@ export default function results(data) { // data = {weatherCode: 1000, precipitat
         listElement.append(propName, propData);
         resultList.append(listElement);
     }
-
+    document.querySelector('.loading').style.display = 'none'
     const resultContainer = document.querySelector('.resultContainer');
     resultContainer.style.display = 'flex'; 
 }

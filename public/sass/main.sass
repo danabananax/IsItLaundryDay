@@ -15,7 +15,7 @@ body
     box-sizing: inherit
 
 .container
-    height: 100%
+    min-height: 100%
     display: flex
     justify-content: center
     align-items: center
@@ -25,7 +25,15 @@ body
         display: none
     &.getWeatherContainer
         font-family: 'Roboto Mono'
+    &.loading
+        width: 100%
+        display: none
+        #loading-bar
+            width: 30%
     h6
         text-align: center
     @media(max-width: 500px)
         justify-content: space-around
+        &.loading
+            #loading-bar
+                width: 50%

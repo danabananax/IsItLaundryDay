@@ -14,7 +14,7 @@
     <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 </head>
 
-<body ontouchstart="">
+<body>
     <div class="container getWeatherContainer">
         <h6>Please select minimum temperature and<br>windspeed for drying</h6>
         <div class="slider-container">
@@ -51,6 +51,9 @@
         <ul id="results" class='mdl-list volatile'>
         </ul>
         <button class="mdl-button mdl-js-button" id="back-btn">Back</button>
+    </div>
+    <div class="container loading">
+        <div id="loading-bar" class="mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>
     </div>
 </body>
 
